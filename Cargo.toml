@@ -1,13 +1,18 @@
 [package]
-name = "ats_plugin"
+name = "bve_udp_socket"
 version = "0.1.0"
 authors = ["BVE Workshop <bveworkshop@gmail.com>", "WATANABE Yuki <magicant@wonderwand.net>"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[[bin]]
+name = "socket_debugger"
+path = "src/main.rs"
+
+
 [lib]
-name = "ats_plugin"
+name = "udp_socket"
 path = "src/lib.rs"
 crate-type = ["cdylib"]
 
@@ -15,4 +20,7 @@ crate-type = ["cdylib"]
 strip = true
 
 [dependencies]
+binary-layout = "3.2.0"
+bincode = "1.3.3"
+serde = { version = "1.0.189", features = ["derive"] }
 winapi = { version = "0.3.9", features = ["minwindef"] }
